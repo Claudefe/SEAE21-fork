@@ -1,7 +1,7 @@
 import sensors_main
 import unittest
-
-# Test
+from unittest.mock import patch # needed for the example integration 
+import sys # needed for setting the command line parameters for test 
 
 # Unit tests implemented with Python's built-in unittest
 # need to be classes, so here we use TestSensors class
@@ -21,9 +21,18 @@ class TestSensors(unittest.TestCase):
     # with incorrect inputs (lower limit 22 and higher limit 18) and
     # expects the method to return False, since the limits are
     # incorrect. To be implemented.
+    def test_check_limits1(self):
+        limits = [22, 18]
+        result = sensors_main.check_limits(limits)
+        self.assertTrue(result, True)
 
     # Placeholder for the test case test_check_limits3. To be designed
     # and implemented. 
+    def test_check_limits1(self):
+        limits = [18, 18]
+        result = sensors_main.check_limits(limits)
+        self.assertTrue(result, True)
+    
 
 if __name__ == '__main__':
     unittest.main()
